@@ -69,9 +69,6 @@ public class Tensorflow1Interface implements DeepLearningInterface
 
 	@Override
 	public void loadModel(String modelFolder, String modelSource) throws LoadModelException {
-		// TODO try to find a better way
-		NDManager aa = NDManager.newBaseManager();
-		aa.close();
 		model = SavedModelBundle.load(modelFolder, "serve");
 		byte[] byteGraph = model.metaGraphDef();
         try
